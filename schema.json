@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event_name": {
+            "type": "string",
+            "description": "Name of the finance/tech event"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["low", "mid", "high"],
+            "description": "Deal sourcing priority level"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Event start date (YYYY-MM-DD format)"
+          },
+          "end_date": {
+            "type": "string", 
+            "description": "Event end date (YYYY-MM-DD format)"
+          },
+          "location": {
+            "type": "string",
+            "description": "Event location (city, state)"
+          },
+          "industry_focus": {
+            "type": "string",
+            "description": "Primary industry focus (fintech, AI, VC, etc.)"
+          },
+          "estimated_attendance": {
+            "type": "string",
+            "description": "Expected number of attendees"
+          },
+          "estimated_price": {
+            "type": "string",
+            "description": "Registration cost or price range"
+          },
+          "organizer_sponsor": {
+            "type": "string",
+            "description": "Event organizer or main sponsor"
+          },
+          "suitability": {
+            "type": "string",
+            "enum": ["low", "mid", "high"],
+            "description": "Suitability for AI deployment engineering deal sourcing"
+          }
+        },
+        "required": ["event_name", "start_date", "location", "priority", "suitability"]
+      }
+    },
+    "search_metadata": {
+      "type": "object",
+      "properties": {
+        "search_date": {"type": "string"},
+        "total_events_found": {"type": "number"},
+        "geographic_focus": {"type": "string"}
+      }
+    }
+  },
+  "required": ["events"]
+}
